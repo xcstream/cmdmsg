@@ -1,9 +1,8 @@
 var mqtt    = require('mqtt');
 var client  = mqtt.connect('mqtt://appxc.com');
 const repl = require('repl');
-var myteleid =  ''+parseInt(Math.random() * 99999);
+var myteleid =  ''+Math.floor(Math.random() * 8999+1000);
 console.log('my teleid',myteleid,"\nusage: send('text','peer teleid')" );
-
 
 repl.start('> ').context.send = function(text,peerteleid){
   client.publish(''+peerteleid, text+ ' from '+myteleid);

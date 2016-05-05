@@ -8,4 +8,5 @@ npm install
 run:
 node app
 
-
+to host server:
+see http://emqtt.io/
