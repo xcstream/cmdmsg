@@ -35,5 +35,4 @@ client.on('message', function (topic, message) {
 
 function savesender(msgstring){
   replcontext.lastsender = msgstring.substr(1,4)
-  console.log(replcontext.lastsender)
 }
