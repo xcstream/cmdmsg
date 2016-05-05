@@ -4,9 +4,9 @@ const repl = require('repl');
 const myteleid =  ''+Math.floor(Math.random() * 8999+1000);
 const avatars = require('./avatar')();
 
-console.log('my teleid',myteleid,);
-console.log("usage:\nsend('text','peer teleid')   //send message to a user" )
-console.log("reply('text')    //reply message to last one who sent message to you")
+console.log('my teleid:'+myteleid);
+console.log("usage:\nsend('text','peer teleid')  //send message to a user" )
+console.log("reply('text')               //reply message to last one who sent message to you")
 
 var myavatar = avatars[Math.floor(Math.random() * 999) % avatars.length]
 
