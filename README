@@ -1,0 +1,11 @@
+a simple commandline messager client via mqtt
+
+require lastest nodejs installed 
+
+install:
+npm install
+
+run:
+node app
+
+
