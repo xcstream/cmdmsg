@@ -1,12 +1,16 @@
-const mqtt    = require('mqtt');
-const client  = mqtt.connect('mqtt://appxc.com');
+const mqtt = require('mqtt');
+const client = mqtt.connect('mqtt://appxc.com');
 const repl = require('repl');
 const myteleid =  ''+Math.floor(Math.random() * 8999+1000);
-console.log('my teleid',myteleid,"\nusage: send('text','peer teleid')");
+const avatars = require('./avatar')();
 
-repl.start('> ').context.send = function(text,peerteleid){
-  client.publish(''+peerteleid, text+ ' from '+myteleid);
-  return 'ok'
+console.log('my teleid',myteleid,"\nusage: send('text','peer teleid')");
+var myavatar = avatars[Math.floor(Math.random() * 999) % avatars.length]
+
+var replcontext = repl.start(`[${myteleid}]${myavatar}> `).context;
+
+replcontext.send = function(text,peerteleid){
+  client.publish(''+peerteleid,`[${myteleid}]${myavatar} says: ${text}`);
 };
 
 client.on('connect', function () {
@@ -14,5 +18,6 @@ client.on('connect', function () {
 });
 
 client.on('message', function (topic, message) {
-  console.log('received:',message.toString());
+  var msgstring = message.toString()
+  console.log(`\n\x1b[22;32m [${(new Date).toString()}]\n\x1b[32;32m ${msgstring}\x1b[0m`)
 });
