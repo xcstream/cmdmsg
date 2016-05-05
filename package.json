@@ -1,7 +1,7 @@
 {
   "name": "cmdmsg",
   "version": "1.0.0",
-  "description": "",
+  "description": "a simple commandline messenger client via mqtt",
   "main": "app.js",
   "dependencies": {
     "mqtt": "^1.10.0"
@@ -14,5 +14,13 @@
     "mqtt"
   ],
   "author": "xucheng",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcstream/cmdmsg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xcstream/cmdmsg/issues"
+  },
+  "homepage": "https://github.com/xcstream/cmdmsg#readme"
 }
