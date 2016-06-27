@@ -1,12 +1,14 @@
+const serveraddr = 'mqtt://appxc.com'
+
 const mqtt = require('mqtt');
-const client = mqtt.connect('mqtt://appxc.com');
+const client = mqtt.connect(serveraddr);
 const repl = require('repl');
 const myteleid =  ''+Math.floor(Math.random() * 8999+1000);
 const avatars = require('./avatar')();
 
+console.log('connecting:'+serveraddr+'...');
 console.log('my teleid:'+myteleid);
-console.log("usage:\nsend('text','peer teleid')  //send message to a user" )
-console.log("reply('text')               //reply message to last one who sent message to you")
+console.log('help() -> show usage');
 
 var myavatar = avatars[Math.floor(Math.random() * 999) % avatars.length]
 
@@ -24,6 +26,11 @@ replcontext.reply = function(text){
     console.log('no target to reply.')
   }
 };
+
+replcontext.help = function(){
+  console.log("usage:\nsend('text','peer teleid')  //send message to a user");
+  console.log("reply('text')               //reply message to last one who sent message to you")
+}
 
 client.on('connect', function () {
   client.subscribe(myteleid);
