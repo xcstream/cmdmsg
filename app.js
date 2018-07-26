@@ -1,4 +1,4 @@
-const serveraddr = 'mqtt://moha.pub'
+const serveraddr = 'mqtt://am.appxc.com'
 
 const mqtt = require('mqtt');
 const client = mqtt.connect(serveraddr);
